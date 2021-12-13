@@ -1,16 +1,11 @@
 # Base_GetX
 
-A new Flutter project.
+A new Base GetX Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+![Splash](https://firebasestorage.googleapis.com/v0/b/demofirebase-5d7b7.appspot.com/o/c9ba0b5e551d9f43c60c.jpg?alt=media&token=25b657c4-46d1-41c0-a733-c23c68d25b8b)
+![user](https://firebasestorage.googleapis.com/v0/b/demofirebase-5d7b7.appspot.com/o/b655568301c0cb9e92d1.jpg?alt=media&token=54be98f0-fcfe-41f7-91b0-0480817838a2)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
