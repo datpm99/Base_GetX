@@ -70,4 +70,5 @@ const Map<String, String> vi_VN = {
   'msg_update_success': 'Cập nhật @label thành công!',
   'msg_dialog_quit': 'Bạn có muốn thoát không?',
   'msg_dialog_delete': 'Bạn có muốn xóa không?',
+  'msg_error_size_file': 'Dung lượng hình ảnh tải lên vượt quá @num',
 };

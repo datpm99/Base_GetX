@@ -1,9 +1,13 @@
+import 'dart:io';
+import 'package:base_getx/const/const.dart';
 import 'package:base_getx/core/models/select_common_model.dart';
 import 'package:base_getx/lang/lang_controller.dart';
 import 'package:base_getx/utils/app_utils.dart';
 import 'package:base_getx/widgets/get_input_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'profile_fields.dart';
 
 class ProfileController extends GetxController {
@@ -21,6 +25,10 @@ class ProfileController extends GetxController {
   GetInputTextConfig get address => _fields.address;
 
   TextEditingController dob = TextEditingController();
+
+  //data imagePicker.
+  late File file;
+  RxBool isPicker = false.obs;
 
   //List Gender.
   List<SelectCommonModel> lstGender = [];
@@ -61,7 +69,46 @@ class ProfileController extends GetxController {
 
   void updateProfile() {}
 
-  void onCameraImg() {}
+  //picker img.
+  _pickImg(ImageSource imageSource) async {
+    final ImagePicker _picker = ImagePicker();
+    final image = await _picker.pickImage(source: imageSource);
+    if (image != null) {
+      file = File(image.path);
+      if (file.lengthSync() > AppConst.fileSize) {
+        isPicker.value = false;
+        AppUtils.showError(
+          'msg_error_size_file'.trParams({'num': AppConst.fileSizeName}),
+          title: 'error'.tr,
+        );
+      } else {
+        isPicker.value = true;
+        Get.back(); // Back bottomSheet.
+      }
+    }
+  }
 
-  void onUploadImg() {}
+  //ImagePicker from camera.
+  void onCameraImg() async {
+    PermissionStatus statusStorage = await Permission.camera.status;
+    if (!statusStorage.isGranted) {
+      if (await Permission.camera.request().isGranted) {
+        _pickImg(ImageSource.camera);
+      }
+    } else {
+      _pickImg(ImageSource.camera);
+    }
+  }
+
+  //ImagePicker from store.
+  void onUploadImg() async {
+    PermissionStatus statusStorage = await Permission.storage.status;
+    if (!statusStorage.isGranted) {
+      if (await Permission.storage.request().isGranted) {
+        _pickImg(ImageSource.gallery);
+      }
+    } else {
+      _pickImg(ImageSource.gallery);
+    }
+  }
 }

@@ -71,4 +71,5 @@ const Map<String, String> en_US = {
   'msg_update_success': '@label update successful!',
   'msg_dialog_quit': 'Do you want to quit?',
   'msg_dialog_delete': 'Do you want to delete?',
+  'msg_error_size_file': 'Upload image size exceeds @num',
 };
