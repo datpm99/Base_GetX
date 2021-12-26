@@ -15,7 +15,32 @@ A new Base GetX Flutter project.
 - Image Picker.
 - Date Picker.
 
-## Getting Started
+## Structure root
+- ```android```: In this directory, all the project files for the android application. You can make changes, add necessary permissions and native Android code here.
+- ```ios```: In this directory, all the project files for the ios application. You can make changes, add necessary permissions and native IOS code here.
+- ```assets```: This folder contains all the files of the application. Ex: .png, .pdf v.v.
+- ```build```: This folder contains all the compiled outputs like app bundles, apk files and other related files and folders.
+- ```lib```: The directory containing the main source code of the app.
+- ```pubspec.yaml, pubspec.lock```: These files contain all required package names, their versions, links to assets, dependencies, application name, application version, application dependencies, v.v.
+
+## Structure main app
+- ```const```: The directory contains the common constants for the app (theme, config...).
+- ```lang```: The directory contains language files.
+- ```pages```: The directory contains main pages for the project.
+    - Subpage structure
+        - ```models```: Contain all model of page.
+        - ```widgets```: Widget of page.
+        - ```page_controller.dart```: File handle logic page.
+        - ```page_view.dart```: File view of page. 
+        - ```page_bindings.dart```: File binding of page.
+- ```routes```: Init router, navigator page.
+- ```services```: Init services api, firebase, setting...
+- ```utils```: File common for app.
+- ```widgets```: Widget common for page.
+- ```my_app.dart```: Config app.
+- ```main.dart```: File start application.
+
+## Preview
 <div>
 <img src="https://firebasestorage.googleapis.com/v0/b/demofirebase-5d7b7.appspot.com/o/c9ba0b5e551d9f43c60c.jpg?alt=media&token=25b657c4-46d1-41c0-a733-c23c68d25b8b" width="270" height="600" />
   <img src="https://firebasestorage.googleapis.com/v0/b/demofirebase-5d7b7.appspot.com/o/signin.jpg?alt=media&token=379ab3af-2bc7-49fb-9214-e2db9aed91d3" width="270" height="600" />
